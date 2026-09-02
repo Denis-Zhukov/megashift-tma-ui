@@ -1,93 +1,95 @@
 # MegaShift TMA UI
 
-Telegram Mini App для управления рабочими сменами. Позволяет сотрудникам планировать, отслеживать смены и просматривать статистику зарплат.
+Telegram Mini App for managing work shifts. Employees can plan and track shifts and view salary statistics.
 
-## Технологии
+> The backend lives in a sibling repo: [megashift-tma-server](https://github.com/ZhukovLabs/megashift-tma-server)
 
-- **Next.js 16** — фреймворк
+## Tech stack
+
+- **Next.js 16** — framework
 - **React 19** — UI
-- **TypeScript** — типизация
-- **Tailwind CSS 4** + DaisyUI — стили
-- **Zustand** — управление состоянием
-- **React Query** — серверное состояние
-- **React Hook Form + Zod** — формы и валидация
-- **TMA SDK** — интеграция с Telegram
-- **next-intl** — интернационализация (ru/en)
-- **Framer Motion** — анимации
+- **TypeScript** — typing
+- **Tailwind CSS 4** + DaisyUI — styling
+- **Zustand** — state management
+- **React Query** — server state
+- **React Hook Form + Zod** — forms and validation
+- **TMA SDK** — Telegram integration
+- **next-intl** — internationalization (ru/en)
+- **Framer Motion** — animations
 
-## Структура проекта
+## Project structure
 
 ```
-├── app/                    # Next.js App Router страницы
-│   ├── (authenticated)/    # Защищённые маршруты
-│   │   ├── schedule/       # График смен
-│   │   ├── shifts/         # Управление сменами
-│   │   ├── statistics/     # Статистика и графики
-│   │   └── settings/       # Настройки профиля
-│   ├── onboarding/        # Онбординг
-│   └── layout.tsx          # Корневой layout
-├── components/            # UI компоненты
-├── entities/              # Доменные сущности
-│   ├── user/              # Пользователь
-│   ├── currency/          # Валюты
-│   └── salary/            # Зарплата
-├── hooks/                 # Кастомные React хуки
-├── store/                 # Zustand stores
-├── lib/                   # Утилиты (axios, react-query)
-└── i18n/                  # Интернационализация
+├── app/                    # Next.js App Router pages
+│   ├── (authenticated)/    # Protected routes
+│   │   ├── schedule/       # Shift calendar
+│   │   ├── shifts/         # Shift management
+│   │   ├── statistics/     # Stats and charts
+│   │   └── settings/       # Profile settings
+│   ├── onboarding/         # Onboarding
+│   └── layout.tsx          # Root layout
+├── components/             # UI components
+├── entities/               # Domain entities
+│   ├── user/               # User
+│   ├── currency/           # Currencies
+│   └── salary/             # Salary
+├── hooks/                  # Custom React hooks
+├── store/                  # Zustand stores
+├── lib/                    # Utilities (axios, react-query)
+└── i18n/                   # Internationalization
 ```
 
-## Установка
+## Installation
 
 ```bash
 npm install
 ```
 
-## Запуск
+## Running
 
 ```bash
 npm run dev
 ```
 
-## Скрипты
+## Scripts
 
-- `npm run dev` — разработка
-- `npm run build` — сборка
-- `npm run start` — продакшен запуск
-- `npm run lint` — линтинг
+- `npm run dev` — development
+- `npm run build` — production build
+- `npm run start` — production start
+- `npm run lint` — linting
 
 ## Docker
 
 ```bash
-# Сборка
+# Build
 docker build -t planner .
 
-# Запуск
+# Run
 docker run -p 3000:3000 planner
 ```
 
-## Переменные окружения
+## Environment variables
 
-Создайте `.env.local`:
+Create a `.env.local`:
 
 ```
-# API URL (обязательно)
+# API URL (required)
 NEXT_PUBLIC_API_URL=
 
-# Опционально
+# Optional
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
-## Доступные языки
+## Available languages
 
-- 🇷🇺 Русский (по умолчанию)
+- 🇷🇺 Russian (default)
 - 🇬🇧 English
 
-## Разработка
+## Development
 
-Проект использует feature-based архитектуру. При добавлении новой функциональности:
+The project follows a feature-based architecture. When adding new functionality:
 
-1. Создайте компоненты в `components/`
-2. Добавьте типы в соответствующую сущность в `entities/`
-3. Используйте Zustand для локального состояния
-4. React Query — для серверного состояния
+1. Create components in `components/`
+2. Add types to the corresponding entity in `entities/`
+3. Use Zustand for local state
+4. Use React Query for server state
