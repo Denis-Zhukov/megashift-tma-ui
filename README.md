@@ -9,7 +9,7 @@ Telegram Mini App for managing work shifts. Employees can plan and track shifts 
 - **Next.js 16**: framework
 - **React 19**: UI
 - **TypeScript**: typing
-- **Tailwind CSS 4** + DaisyUI — styling
+- **Tailwind CSS 4** + DaisyUI: styling
 - **Zustand**: state management
 - **React Query**: server state
 - **React Hook Form + Zod**: forms and validation
